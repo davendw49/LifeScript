@@ -84,11 +84,12 @@ class wechat():
 # 运行
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description='Process some integers.')
-    parser.add_argument('-i', '--in_path', default="D:\\Wechat\\WeChat_Files\\davendw\\FileStorage\\Image\\", help='input wechat address')
+    parser.add_argument('-i', '--in_path', default="E:\\Program Files (x86)\\WeChat\\WeChat_Files\\gl5216\\FileStorage\\Image\\", help='input wechat address')
     parser.add_argument('-o', '--out_path', default="data\\", help='output file folder')
     parser.add_argument('-t', '--time_month', default="2019-11", help='time file')
+    parser.add_argument('-m', '--mode', default="all", help='mode')
     args = parser.parse_args()
     in_path = str(args.in_path).replace("_"," ")
     we = wechat(in_path, args.time_month, args.out_path)
     # we.find_img_list()[:10]
-    we.img_decoder(img_type="jpg", mode="test")
+    we.img_decoder(img_type="jpg", mode=args.mode)
